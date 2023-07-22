@@ -1,7 +1,4 @@
-const gallery = document.querySelector('.gallery');
-    Element.parent
-
-async function fetchWork (){
+    async function fetchWork (){
     const r = await fetch("http://localhost:5678/api/works", {
         method: 'GET',
         headers: {
@@ -14,4 +11,6 @@ async function fetchWork (){
     throw new Error ('Impossible de contacter le serveur')
 }
 
-fetchWork().then(work => console.log(work))
+fetchWork().then(work => console.log(work){
+    /**for*/ 
+});

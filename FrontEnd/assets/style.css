@@ -180,6 +180,24 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
+.Categories{
+	display: flex;
+	justify-content: center;
+	gap: 0.5em;
+}
+
+.btnCat{
+	width: 17%;
+	height: 37px;
+	font-family: Syne;
+	font-weight: 700;
+	border-radius: 60px ;
+	text-align: center;
+	border: 1px solid #1D6154;
+	color: #1D6154;
+	background-color: white;
+}
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
