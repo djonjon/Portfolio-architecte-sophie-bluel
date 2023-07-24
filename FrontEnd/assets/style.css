@@ -135,8 +135,8 @@ li:hover {
 
 .gallery img {
 	width: 100%;
-
 }
+
 #contact {
 	width: 50%;
 margin: auto;
@@ -183,12 +183,14 @@ input[type="submit"]{
 .Categories{
 	display: flex;
 	justify-content: center;
-	gap: 0.5em;
+	padding-top: 20px;
+	gap: 0.6em;
+	height: 75px;
 }
 
 .btnCat{
-	width: 17%;
 	height: 37px;
+	min-width: 100px;
 	font-family: Syne;
 	font-weight: 700;
 	border-radius: 60px ;
@@ -198,9 +200,14 @@ input[type="submit"]{
 	background-color: white;
 }
 
+.btnCat.active{
+	color: white;
+	background-color: #1D6154;
+}
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
 }
 
