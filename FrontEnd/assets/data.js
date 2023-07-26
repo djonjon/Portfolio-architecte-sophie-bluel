@@ -49,7 +49,6 @@ function categoryActive(category) {
     });
 }
 
-//
 function filterPictByCat(category) {
     // obtenir les données des images
     fetchWork()
