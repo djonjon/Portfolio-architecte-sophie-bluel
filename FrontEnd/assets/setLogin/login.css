@@ -92,7 +92,7 @@ nav li {
 	font-size: 1.2em;
 }
 
-li:hover {
+li:hover , a:hover {
 	color: #B1663C;
 }
 
@@ -143,6 +143,10 @@ input[type="submit"]{
 #passForget{
     text-align: center;
     color: #1D6154;
+}
+
+#errorMessage{
+	display: none;
 }
 
 footer nav ul {

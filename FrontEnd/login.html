@@ -8,14 +8,14 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
-	<link rel="stylesheet" href="./assets/login/login.css">
+	<link rel="stylesheet" href="./assets/setLogin/login.css">
 </head>
 <body>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
 		<ul>
-			<li>projets</li>
+			<li><a href="./index.html">projets</a></li>
 			<li>contact</li>
 			<li><a href="/FrontEnd/login.html">Login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
@@ -28,12 +28,13 @@
 		<h2>Log In</h2>
 		<form action="#" method="post">
 			<label for="email">Email</label>
-			<input type="email" name="email" id="email">
+			<input type="email" name="email" id="email" required>
             <label for="text">Mot de passe</label>
-			<input type="password" name="password" id="password">
+			<input type="password" name="password" id="password" required>
 			<input type="submit" value="Se connecter">
             <a href="#" id="passForget">Mot de passe oublié</a>
 		</form>
+		<div id="errorMessage">Identifiants incorrects. Veuillez réessayer.</div>
 	</section>
 </main>
 
@@ -44,6 +45,6 @@
 		</ul>
 	</nav>
 </footer>
-<script type="text/javascript" src="./assets/login.js"></script>
+<script type="text/javascript" src="./assets/setLogin/login.js"></script>
 </body>
 </html>

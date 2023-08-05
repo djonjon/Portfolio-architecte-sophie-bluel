@@ -83,10 +83,12 @@ h2{
 	font-size: 30px;
 	color: #1D6154
 }
-nav ul {
+nav ul, nav a{
 	display: flex;
 	align-items: center;
 	list-style-type: none;
+    text-decoration: none;
+    color: black;
 }
 nav li{
 	padding: 0 10px;
@@ -94,7 +96,7 @@ nav li{
 	text-decoration: none;
 }
 
-li:hover {
+li:hover , a:hover {
 	color: #B1663C;
 }
 #introduction {
