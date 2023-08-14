@@ -46,6 +46,7 @@ let usersLogin = {
 
       // Stocker le token d'authentification dans le stockage local (localStorage) du navigateur
       localStorage.setItem('token', token);
+      console.log(token);
 
       // Rediriger vers la page d'accueil
       window.location.href = '/FrontEnd/index.html';

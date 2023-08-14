@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
+	<script src="https://kit.fontawesome.com/d9fab67fa2.js" crossorigin="anonymous"></script>
 	<title>Sophie Bluel - Architecte d'intérieur</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +36,23 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<div id="mesProjets">
+			<h2>Mes Projets</h2>
+			<a id="edit" href="#modal1"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
+
+			<aside id="modal" class="modal">
+				<a id="fermer-modal" href="#"><i class="fa-solid fa-xmark"></i></a>
+				<div id="modal-content">
+					<h2>Galerie photo</h2>
+					<div class="gallery"></div>
+				</div>
+				<div id="btn-modal">
+					<button id="btn-add-modal">Ajouter une photo</button>
+					<button id="btn-delete-modal">Supprimer la galerie</button>
+				</div>
+
+			</aside>
+		</div>
 		<div class="Categories">
 			<button class="btnCat" onclick="filterPictByCat('Tous')">Tous</button>
 			<button class="btnCat" onclick="filterPictByCat('Objets')">Objets</button>

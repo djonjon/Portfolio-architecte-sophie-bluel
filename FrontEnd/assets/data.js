@@ -62,7 +62,7 @@ function filterPictByCat(category) {
             }
 
             // Appelle la fonction pour définir la catégorie active
-            categoryActive(category);                           
+            categoryActive(category);
         })
         .catch(error => {
             console.error("Une erreur s'est produite", error);
