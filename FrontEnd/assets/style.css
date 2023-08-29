@@ -144,17 +144,18 @@ li:hover , a:hover {
 	padding-right: 10px;
 }
 #modal{
-	display: block;
-	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 5px 20px;
 	background-color: white;
 	border-radius: 10px;
 	border: 1px solid #B3B3B3;
 	max-width: 600px;
 }
-
-#fermer-modal{
-	text-decoration: none;
-	font-size: large;
+.fermer-modal{
+	border: none;
+	background-color: white;
 }
 #modal-content{
 	border-bottom: 1px solid #B3B3B3;
@@ -276,4 +277,3 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em;
 }
-
