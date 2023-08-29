@@ -69,3 +69,42 @@ function filterPictByCat(category) {
         });
 }
 
+// Modal
+
+const openModal = function(e){
+    e.preventDefault()
+    const target = document.querySelector(e.target.querySelector('.modal'))
+    target.style.display = 'flex'
+    modal = target
+    modal.addEventListener('click' , closeModal)
+}
+
+const closeModal = function(e){
+    e.preventDefault()
+    target.style.display = 'flex'
+    target.style.display.setAttribute('aria-hiden')
+    target.removeAttribute('aria-modal')
+    modal.removeEventListener('click' , closeModal)
+    modal.querySelector('.fermer-modal').removeEventListener('click', closeModal)
+    modal.querySelector('.modal-stop').removeEventListener('click', stopPropagation)
+    modal = null
+}
+
+const stopPropagation = function(e) {
+    e.stopPropagation()
+}
+
+  document.querySelector('#modal', (event) => {
+    event.addEventListener('click', openModal)
+  })
+
+// Récupération du token dans le stockage local
+const storedToken = localStorage.getItem('token');
+console.log(storedToken)
+    
+// Vérifie que le token est stocké 
+if (storedToken) {
+    // Affiche l'élément HTML pour l'administrateur connecté
+  const adminElement = document.querySelector('#edit');
+  adminElement.style.display = 'flex';
+}
