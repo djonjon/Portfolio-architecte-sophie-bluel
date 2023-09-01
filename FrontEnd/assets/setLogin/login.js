@@ -1,4 +1,4 @@
-const fetchLogin = 'http://localhost:5678/api/users/login';
+const fetchLogin = 'http://localhost:5678/api/users/login'
 
 let usersLogin = {
     email: 'sophie.bluel@test.tld',
@@ -30,26 +30,26 @@ let usersLogin = {
       },
       body: JSON.stringify(usersLogin)
     };
-  
     try {
       // Envoi de la requête POST à l'API
       const response = await fetch(fetchLogin, requestOptions);
-  
+    
       // Vérifier si la réponse est OK
       if (!response.ok) {
-        throw new Error('User not found');
+        throw new Error('Utilisateur non trouvé');
       }
       
       // Convertir la réponse en format JSON et récupérer le token d'authentification
       const data = await response.json();
       const token = data.token;
-
+    
       // Stocker le token d'authentification dans le stockage local (localStorage) du navigateur
       localStorage.setItem('token', token);
       console.log(token);
-
+    
       // Rediriger vers la page d'accueil
       window.location.href = '/FrontEnd/index.html';
+      
     } catch (error) {
       errorMessage.style.display = 'block';
     }

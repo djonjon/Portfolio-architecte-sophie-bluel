@@ -69,3 +69,68 @@ function filterPictByCat(category) {
         });
 }
 
+// Modal
+const modal = document.querySelector('.modal')
+const fermerModalBtn = document.getElementById('fermer-modal')
+
+function openModal(){
+    modal.style.display = 'flex'
+
+    const focusableElement = modal.querySelectorAll('button, img')
+    if (focusableElement.length > 0) {
+        focusableElement[0].focus();
+    }
+}
+
+function fermerModal(){
+    modal.style.display = 'none'
+}
+
+document.getElementById('edit').addEventListener('click', openModal);
+
+fermerModalBtn.addEventListener('click', fermerModal)
+
+// fonction pour afficher les photos dans la modal 
+function galleryModal(modalData) {
+    const galleryModal = document.querySelector('.modal-gallery');
+    galleryModal.innerHTML ='';
+
+    modalData.forEach( item => {
+        const figure = document.createElement('figure');
+        const img = document.createElement('img');
+        const figcaption = document.createElement('figcaption');
+
+        img.src = item.imageUrl;
+        img.alt = item.title;
+        figcaption.textContent = 'éditer';
+
+        figure.appendChild(img);
+        figure.appendChild(figcaption);
+
+        galleryModal.appendChild(figure);
+    });
+}
+
+// function récupération et affichage des photos dans la modal
+function picturesModal(){
+    fetchWork()
+        .then(modalData => {
+            galleryModal(modalData);
+            openModal();
+        })
+        .catch(error => {
+            console.error("Erreur Serveur", error)
+        });
+}
+
+document.getElementById('edit').addEventListener('click', picturesModal);
+
+// Récupération du token dans le stockage local
+const storedToken = localStorage.getItem('token');
+    
+// Vérifie que le token est stocké 
+if (storedToken) {
+    // Affiche l'élément HTML pour l'administrateur connecté
+  const adminElement = document.getElementById('edit');
+  adminElement.style.display = 'flex';
+}
