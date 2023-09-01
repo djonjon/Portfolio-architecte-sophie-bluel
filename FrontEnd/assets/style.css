@@ -144,7 +144,6 @@ li:hover , a:hover {
 	padding-right: 10px;
 }
 #modal{
-<<<<<<< HEAD
 	display: none;
 	position: fixed;
 	justify-content: center;
@@ -161,30 +160,18 @@ li:hover , a:hover {
 	align-items: center;
 	flex-direction: column;
 	position: fixed;
-=======
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	padding: 5px 20px;
->>>>>>> master
 	background-color: white;
 	padding: 10px 10px;
 	border-radius: 10px;
 	border: 1px solid #B3B3B3;
 	max-width: 620px;
 }
-<<<<<<< HEAD
 #fermer-modal{
 	cursor: pointer;
 	border: none;
 	font-size: large;
 	background-color: white;
 	align-self: end;
-=======
-.fermer-modal{
-	border: none;
-	background-color: white;
->>>>>>> master
 }
 .modal-gallery{
 	width: 100%;
