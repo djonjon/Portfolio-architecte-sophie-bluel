@@ -1,3 +1,13 @@
+// Récupération du token dans le stockage local
+const storedToken = localStorage.getItem('token');
+    
+// Vérifie que le token est stocké 
+if (storedToken) {
+    // Affiche l'élément HTML pour l'administrateur connecté
+  const adminElement = document.getElementById('edit');
+  adminElement.style.display = 'flex';
+}
+
 // Récupération des données via l'API
 async function fetchWork (){
     const r = await fetch("http://localhost:5678/api/works", {
@@ -71,19 +81,29 @@ function filterPictByCat(category) {
 
 // Modal
 const modal = document.querySelector('.modal')
+const modalContent = document.getElementById('modal-content')
 const fermerModalBtn = document.getElementById('fermer-modal')
+const btnAddPict = document.getElementById('btn-add-pict')
 
 function openModal(){
     modal.style.display = 'flex'
-
-    const focusableElement = modal.querySelectorAll('button, img')
-    if (focusableElement.length > 0) {
-        focusableElement[0].focus();
-    }
+    document.body.style.overflow = 'hidden'
+    // const focusableElement = modal.querySelectorAll('button, href')
+    // if (focusableElement.length > 0) {
+    //     focusableElement[0].focus()
+    // }
 }
 
 function fermerModal(){
     modal.style.display = 'none'
+    document.body.style.overflow = 'auto'
+}
+
+function modalAddPict() {
+    const titleModal = document.getElementById('title-modal')
+    titleModal.textContent = 'Ajout photo'
+
+
 }
 
 document.getElementById('edit').addEventListener('click', openModal);
@@ -98,16 +118,15 @@ function galleryModal(modalData) {
     modalData.forEach( item => {
         const figure = document.createElement('figure');
         const img = document.createElement('img');
-        const figcaption = document.createElement('figcaption');
+        //const poubelle = document.createElement('i')
 
         img.src = item.imageUrl;
         img.alt = item.title;
-        figcaption.textContent = 'éditer';
+        //poubelle.classList.add('fa-solid', 'fa-trash-can')
 
         figure.appendChild(img);
-        figure.appendChild(figcaption);
-
         galleryModal.appendChild(figure);
+        //figure.appendChild(poubelle)
     });
 }
 
@@ -124,13 +143,3 @@ function picturesModal(){
 }
 
 document.getElementById('edit').addEventListener('click', picturesModal);
-
-// Récupération du token dans le stockage local
-const storedToken = localStorage.getItem('token');
-    
-// Vérifie que le token est stocké 
-if (storedToken) {
-    // Affiche l'élément HTML pour l'administrateur connecté
-  const adminElement = document.getElementById('edit');
-  adminElement.style.display = 'flex';
-}

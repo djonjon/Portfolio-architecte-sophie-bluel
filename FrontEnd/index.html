@@ -39,17 +39,16 @@
 		<div id="mesProjets">
 			<h2>Mes Projets</h2>
 			<a id="edit" href="#modal"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
-			<dialog aria-label="gallery-edit" id="modal" class="modal">
-				<div id="modal-content" tabindex="0">
-					<button type="button" id="fermer-modal"><i class="fa-solid fa-xmark"></i></button>
-					<h2 id="titleModal">Galerie photo</h2>
+			<aside id="modal" class="modal">
+				<div id="modal-content">
+					<a id="fermer-modal"><i class="fa-solid fa-xmark"></i></a>
+					<h2 id="title-modal">Galerie photo</h2>
 					<div class="modal-gallery"></div>
-					<div id="btn-modal">
-						<button id="btn-add-modal" class="modal-button">Ajouter une photo</button>
-						<button id="btn-delete-modal" class="modal-button">Supprimer la galerie</button>
+					<div id="add-pict">
+						<button type="button" id="btn-add-pict">Ajouter une photo</button>
 					</div>
 				</div>
-			</dialog>
+			</aside>
 		</div>
 		<div class="Categories">
 			<button class="btnCat" onclick="filterPictByCat('Tous')">Tous</button>

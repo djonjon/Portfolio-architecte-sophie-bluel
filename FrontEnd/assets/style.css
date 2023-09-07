@@ -56,10 +56,10 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 50px 0px;
 }
 section {
-	margin: 50px 0
+	margin: 50px 0px;
 }
 
 h1{
@@ -145,33 +145,35 @@ li:hover , a:hover {
 }
 #modal{
 	display: none;
-	position: fixed;
 	justify-content: center;
+	align-items: center;
+	position: fixed;
 	top: 0;
 	left: 0;
 	height: 100%;
 	width: 100%;
-	z-index: 999;
-	background-color: rgba(23, 22, 22, 0.7);
+	background: rgba(0, 0, 0, 0.3);
+	;
 }
 #modal-content{
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	flex-direction: column;
-	position: fixed;
+	overflow-y: scroll;
+	display: block;
+	z-index: 999;
 	background-color: white;
 	padding: 10px 10px;
 	border-radius: 10px;
 	border: 1px solid #B3B3B3;
 	max-width: 620px;
+	height: 90%;
 }
 #fermer-modal{
+	display: flex;
+	justify-content: end;
 	cursor: pointer;
 	border: none;
 	font-size: large;
 	background-color: white;
-	align-self: end;
+	
 }
 .modal-gallery{
 	width: 100%;
@@ -185,16 +187,18 @@ li:hover , a:hover {
 .modal-gallery img{
 	width: 100%;
 }
-#btn-modal{
+#add-pict{
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
-#btn-add-modal{
+.fa-trash-can{
+	float: right;
+}
+#btn-add-pict{
 	height: 37px;
 	margin-top: 20px;
-	min-width: 200px;
+	max-width: 200px;
 	font-family: Syne;
 	font-weight: 700;
 	border-radius: 60px ;
@@ -202,18 +206,6 @@ li:hover , a:hover {
 	border: 1px solid #1D6154;
 	color: white;
 	background-color: #1D6154;
-}
-#btn-delete-modal{
-	height: 37px;
-	margin-top: 20px;
-	min-width: 200px;
-	font-family: Syne;
-	font-weight: 700;
-	border-radius: 60px ;
-	text-align: center;
-	border: none;
-	background-color: white;
-	color: red;
 }
 .gallery {
 	width: 100%;
