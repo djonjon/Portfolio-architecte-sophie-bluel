@@ -156,11 +156,11 @@ li:hover , a:hover {
 	;
 }
 #modal-content{
-	overflow-y: scroll;
+	overflow-y: auto;
 	display: block;
 	z-index: 999;
 	background-color: white;
-	padding: 10px 10px;
+	padding: 30px 20px;
 	border-radius: 10px;
 	border: 1px solid #B3B3B3;
 	max-width: 620px;
@@ -184,17 +184,43 @@ li:hover , a:hover {
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 }
+#title-modal{
+	font-family: 'Work Sans';
+	text-align: center;
+	font-size: 26px;
+	font-weight: 400;
+	margin-bottom: 1em;
+	color: black;
+}
 .modal-gallery img{
 	width: 100%;
+}
+.modal-gallery figure {
+	display: flex;
+    position: relative;
+}
+.fa-trash-can{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	color: white;
+	background-color: black;
+	border-radius: 2px;
+	padding: 2px;
+	font-size: small;
+	width: 15px;
+	height: 15px;
+	top: 7px;
+	right: 7px;
+	cursor: pointer;
 }
 #add-pict{
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-.fa-trash-can{
-	float: right;
-}
+
 #btn-add-pict{
 	height: 37px;
 	margin-top: 20px;
