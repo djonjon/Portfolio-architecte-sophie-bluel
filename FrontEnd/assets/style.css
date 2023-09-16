@@ -184,6 +184,22 @@ li:hover , a:hover {
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 }
+#modal-add-picture{
+	display: flex;
+	width: 420px;
+	max-height: 170px;
+	background-color: rgba(232, 241, 246, 1);
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border: none 1px;
+	border-radius: 3px;
+}
+.fa-image{
+	padding: 10px;
+	font-size: xx-large;
+	color: rgba(203, 214, 220, 1);
+}
 #title-modal{
 	font-family: 'Work Sans';
 	text-align: center;

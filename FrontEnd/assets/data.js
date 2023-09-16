@@ -127,12 +127,33 @@ function fermerModal(){
 }
 
 function modalAddPict() {
+    
     const titleModal = document.getElementById('title-modal')
     titleModal.textContent = 'Ajout photo'
+    
+    const modalGallery = document.querySelector('.modal-gallery')
+    modalGallery.innerHTML = ''
+    modalGallery.setAttribute( 'id' , 'modal-add-picture')
+    const returnArrow = document.createElement('i') 
+
+    const iconeImage = document.createElement('i')
+    const buttonPicture = document.createElement('button')
+    const infoPicture = document.createElement('p')
+
+    returnArrow.classList.add('fa-solid', 'fa-arrow-left')
+    iconeImage.classList.add('fa-regular', 'fa-image')
+    buttonPicture.textContent = ' + Ajouter Photos'
+    infoPicture.textContent = ' jpg, png : 4mo max '
+
+    
+    modalGallery.appendChild(iconeImage)
+    modalGallery.appendChild(buttonPicture)
+    modalGallery.appendChild(infoPicture)
+
 }
 
-document.getElementById('edit').addEventListener('click', openModal);
-
+document.getElementById('edit').addEventListener('click', openModal)
+document.getElementById('btn-add-pict').addEventListener('click', modalAddPict)
 fermerModalBtn.addEventListener('click', fermerModal)
 
 // fonction pour afficher les photos dans la modal 
