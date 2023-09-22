@@ -115,7 +115,8 @@ function openModal(){
 
 function clickOutModal(e){
     if (e.target === modal) {
-        fermerModal();
+        fermerModal()
+        modalGallery.removeAttribute('modal-add-picture')
         modal.removeEventListener('click', clickOutModal)
     }
 }
@@ -126,31 +127,117 @@ function fermerModal(){
     //modal.removeEventListener('keydown', gestionFocusModal)
 }
 
+async function fetchCategories() {
+    try {
+        const response = await fetch("http://localhost:5678/api/categories", {
+            method: 'GET',
+            headers: {
+                'accept': 'application/json',
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Impossible de récupérer les catégories depuis le serveur');
+        }
+        return response.json()
+    } catch (error) {
+        console.error("Une erreur s'est produite lors de la récupération des catégories", error);
+        throw error
+    }
+}
+
+
 function modalAddPict() {
+
+    async function categoryOptions() {
+        const categorySelect = document.getElementById('titleInput');
+        
+        try {
+            const categories = await fetchCategories();
+            
+            // Ajoutez chaque catégorie en tant qu'option dans le menu déroulant
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category.name;
+                option.textContent = category.name;
+                categorySelect.appendChild(option);
+            });
+        } catch (error) {
+            console.error('Une erreur s\'est produite lors du peuplement des catégories', error);
+        }
+    }
     
     const titleModal = document.getElementById('title-modal')
     titleModal.textContent = 'Ajout photo'
+    const btnAddPict = document.getElementById('btn-add-pict')
+    btnAddPict.textContent = ' Valider '
     
     const modalGallery = document.querySelector('.modal-gallery')
     modalGallery.innerHTML = ''
     modalGallery.setAttribute( 'id' , 'modal-add-picture')
-    const returnArrow = document.createElement('i') 
 
     const iconeImage = document.createElement('i')
-    const buttonPicture = document.createElement('button')
+    const buttonpicture = document.createElement('input')
     const infoPicture = document.createElement('p')
+    const imagePreview = document.createElement('img')
 
-    returnArrow.classList.add('fa-solid', 'fa-arrow-left')
     iconeImage.classList.add('fa-regular', 'fa-image')
-    buttonPicture.textContent = ' + Ajouter Photos'
+    buttonpicture.type = 'button'
+    buttonpicture.value = ' + Ajouter Photos'
     infoPicture.textContent = ' jpg, png : 4mo max '
-
     
-    modalGallery.appendChild(iconeImage)
-    modalGallery.appendChild(buttonPicture)
-    modalGallery.appendChild(infoPicture)
+    const titleForm = document.createElement('form')
+    const categoryForm = document.createElement('form');
+    titleForm.innerHTML = `
+        <label for="titleInput">Titre</label>
+        <input type="text" id="titleInput" name="title" required>
+    `
+    categoryForm.innerHTML = `
+    <label for="categorySelect">Catégorie</label>
+    <select id="titleInput" name="title" required>
+        <option value=""></option>
+    </select>
+`
+    const formsContainer = document.createElement('div')
+    formsContainer.classList.add('forms-container')
+    formsContainer.appendChild(titleForm)
+    formsContainer.appendChild(categoryForm)
 
+    modalGallery.appendChild(iconeImage)
+    modalGallery.appendChild(buttonpicture)
+    modalGallery.appendChild(infoPicture)
+    modalGallery.appendChild(imagePreview)
+
+    modalGallery.insertAdjacentElement('afterend', formsContainer);
+
+    buttonpicture.addEventListener('click' , function() {
+        const input = document.createElement('input')
+        input.type = 'file'
+        input.accept ='image/*'
+        input.addEventListener('change', function(){
+            fileSelected(input.files[0])
+        })
+        input.click()
+    })
+
+    function fileSelected(file) {
+        const reader = new FileReader()
+
+        reader.onload = function (e) {
+            imagePreview.src = e.target.result
+            imagePreview.style.display = 'flex'
+        }; 
+        
+        if (file) {
+            reader.readAsDataURL(file)
+        }
+    }
+    // Gestionnaire pour le bouton "Valider"
+    btnAddPict.addEventListener('click', function () {
+
+    })
 }
+
 
 document.getElementById('edit').addEventListener('click', openModal)
 document.getElementById('btn-add-pict').addEventListener('click', modalAddPict)
@@ -175,7 +262,9 @@ function galleryModal(modalData) {
         poubelle.setAttribute('data-photo-id', photoId)
 
         // Gestionnaire d'événements au clic sur la corbeille 
-        poubelle.addEventListener('click', () => {
+        poubelle.addEventListener('click', (event) => {
+            event.preventDefault();
+
             const confirmation = window.confirm('Êtes-vous sûr de vouloir cette photo ?')
             if (confirmation) {
                 deletePhoto(photoId)

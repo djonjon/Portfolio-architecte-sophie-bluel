@@ -166,14 +166,13 @@ li:hover , a:hover {
 	max-width: 620px;
 	height: 90%;
 }
-#fermer-modal{
+#header-modal{
 	display: flex;
-	justify-content: end;
+	justify-content: space-between;
 	cursor: pointer;
 	border: none;
 	font-size: large;
-	background-color: white;
-	
+	background-color: white;	
 }
 .modal-gallery{
 	width: 100%;
@@ -235,6 +234,14 @@ li:hover , a:hover {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+.forms-container form{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: auto;
+	padding: 3px;
+	margin: 3px;
 }
 
 #btn-add-pict{
